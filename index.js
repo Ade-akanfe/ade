@@ -1,34 +1,13 @@
 //field one
 let row_1_starting = document.getElementsByName("row_1_starting");
-let row_2_starting = document.getElementsByName("row_2_starting");
-let row_3_starting = document.getElementsByName("row_3_starting");
-let row_4_starting = document.getElementsByName("row_4_starting");
+
 // field two
 let row_1_digit = document.getElementsByName("row_1_digit");
-let row_2_digit = document.getElementsByName("row_2_digit");
-let row_3_digit = document.getElementsByName("row_3_digit");
-let row_4_digit = document.getElementsByName("row_4_digit");
 
 //field three
 let row_1_calculate = document.getElementsByName("row_1_calculate");
-let row_2_calculate = document.getElementsByName("row_2_calculate");
-let row_3_calculate = document.getElementsByName("row_3_calculate");
-let row_4_calculate = document.getElementsByName("row_4_calculate");
 
 let row1changed = {
-  1: false,
-  2: false,
-};
-let row2changed = {
-  1: false,
-  2: false,
-};
-let row3changed = {
-  1: false,
-  2: false,
-};
-
-let row4changed = {
   1: false,
   2: false,
 };
@@ -83,7 +62,9 @@ const generateRandomeNumberAlgorithm = (_start, digits) => {
       ? _start
       : _start + Math.floor(Math.random() * maxValue).toString();
   let result = new Array(8 - +digits).fill("0");
-  const solution = result.reduce((p, n) => p + n) + rndValue;
-  console.log(solution);
-  return solution;
+  const solution =
+    result.length === 0 ? rndValue : result.reduce((p, n) => p + n) + rndValue;
+  return _start.length + digits > 8
+    ? solution.slice(0, 8)
+    : solution.slice(solution.length - 8, solution.length);
 };
