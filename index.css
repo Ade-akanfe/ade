@@ -104,6 +104,36 @@ span input {
 .small_height {
   height: 1.5rem;
 }
+.button {
+  margin: 2rem 0rem;
+  justify-content: center;
+}
+.button button {
+  padding: 0.5rem 0px;
+  width: 150px;
+  outline: none;
+  border: none;
+  background-color: white;
+  box-shadow: 1px 1px 1px 2px rgb(143, 111, 111);
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: brown;
+  font-weight: 900;
+}
+
+@media print {
+  .flex_wrap {
+    gap: 48px;
+    padding: 10px 0px;
+  }
+  .button {
+    display: none;
+  }
+  @page {
+    size: auto;
+    margin: 0em;
+  }
+}
 
 /* 
 
