@@ -121,10 +121,17 @@ span input {
   font-weight: 900;
 }
 
+.table {
+  display: flex;
+}
+.result_parent{
+  display: none;
+}
+
 @media print {
   .flex_wrap {
-    gap: 48px;
-    padding: 10px 0px;
+    /* gap: 48px; */
+    /* padding: 10px 0px; */
   }
   .button {
     display: none;
@@ -133,8 +140,28 @@ span input {
     size: auto;
     margin: 0em;
   }
+  .table {
+    display: none;
+  }
+  .result_parent {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-left: 3.5in;
+    margin-top: 0.75in;
+    gap: 2.5in;
+    list-style-type: none;
+  }
+  .result_parent li {
+    position: relative;
+  }
+}
+.result_parent li:nth-child(4n) {
+  page-break-after: always;
 }
 
+.result_parent li:nth-child(4n + 1) {
+  margin-top: 0.75in;
+}
 /* 
 
 @media screen and (max-width: 1000px) and (orientation: portrait) {
