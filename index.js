@@ -68,36 +68,34 @@ const generateRandomeNumberAlgorithm = (_start, digits) => {
   }
   const rndValues = [];
   for (i = 0; i < +values.calculate; i++) {
-    const maxValplus1 =
-      +values.digit < 2
-        ? 10
-        : "1" +
-          new Array(+values.digit - 1)
-            .fill("0")
-            .reduce((prev, next) => prev + next);
-    const maxValue = +maxValplus1 - 1;
-    let rndValue =
-      +values.digit < 2
-        ? values.starting
-        : values.starting + Math.floor(Math.random() * maxValue).toString();
+    let rndValue = +values.digit < 2 ? +values.starting : +values.starting + i;
     let result = new Array(8 - +values.digit).fill("0");
     const solution =
       result.length === 0
         ? rndValue
         : result.reduce((p, n) => p + n) + rndValue;
     values.starting + digits > 8
-      ? rndValues.push(solution.slice(0, 8))
-      : rndValues.push(solution.slice(0, 8));
+      ? rndValues.push(solution)
+      : rndValues.push(solution);
   }
-  const parent = document.getElementById("parent");
 
-  for (let i = 0; i < rndValues.length; i++) {
+  const newArayVal = rndValues.map((el) => {
+    if (el.toString().length < +values.digit) {
+      const newArray = new Array(8 - el.toString().length).fill("0");
+      const newVal = newArray.reduce((a, b) => a + b);
+      return newVal + el;
+    }
+  });
+
+  const parent = document.getElementById("parent");
+  console.log(newArayVal);
+
+  for (let i = 0; i < newArayVal.length; i++) {
     const li = document.createElement("li");
-    li.innerText = rndValues[i];
-    li.classList.add
+    li.innerText = newArayVal[i];
+    li.classList.add;
     parent.appendChild(li);
   }
-
 };
 
 const printButton = document.getElementById("print");

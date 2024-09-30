@@ -124,15 +124,16 @@ span input {
 .table {
   display: flex;
 }
-.result_parent{
+.result_parent {
   display: none;
 }
-
+/* 
 @media print {
-  .flex_wrap {
-    /* gap: 48px; */
-    /* padding: 10px 0px; */
+  html,
+  body {
+    height: 99%;
   }
+  
   .button {
     display: none;
   }
@@ -153,17 +154,55 @@ span input {
   }
   .result_parent li {
     position: relative;
+    page-break-inside: avoid;
+  }
+  .result_parent li:nth-child(4n) {
+    page-break-after: auto;
+  }
+
+  .result_parent li:nth-child(4n + 1) {
+    margin-top: 0.75in;
+  }
+} */
+
+@media print {
+  .flex_wrap {
+    /* gap: 48px; */
+    /* padding: 10px 0px; */
+  }
+  .button {
+    display: none;
+  }
+  @page {
+    size: auto;
+    margin: 0;
+  }
+  .table {
+    display: none;
+  }
+  .result_parent {
+    display: block; /* Change from grid to block for better control in print */
+    margin-left: 3.5in;
+    margin-top: 0.75in;
+    list-style-type: none;
+  }
+  .result_parent li {
+    position: relative;
+    page-break-inside: avoid; /* Avoid breaking items between pages */
+    margin-bottom: 2.5in; /* Add spacing between items to replace gap */
+  }
+
+  .result_parent li:nth-child(4n) {
+    page-break-after: always;
+  }
+
+  /* Control the top margin of every 5th element */
+  .result_parent li:nth-child(4n + 1) {
+    margin-top: 0.75in;
   }
 }
-.result_parent li:nth-child(4n) {
-  page-break-after: always;
-}
 
-.result_parent li:nth-child(4n + 1) {
-  margin-top: 0.75in;
-}
 /* 
-
 @media screen and (max-width: 1000px) and (orientation: portrait) {
   /* body {
     background: yellow;
