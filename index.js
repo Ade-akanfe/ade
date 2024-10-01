@@ -4,6 +4,7 @@ let row_2_starting = document.getElementsByName("row_2_starting");
 let row_3_starting = document.getElementsByName("row_3_starting");
 let row_4_starting = document.getElementsByName("row_4_starting");
 
+let calcuate = document.getElementsByName("row_1_calculate");
 const generateRandomeNumberAlgorithm = () => {
   // const value1Array = new Array(1).fill(row_1_starting[0].value);
   // const value2Array = new Array(1).fill(row_2_starting[0].value);
@@ -15,9 +16,14 @@ const generateRandomeNumberAlgorithm = () => {
     row_3_starting[0].value,
     row_4_starting[0].value,
   ];
-  
 
-  const newArayVal = final.map((el) => {
+  const result = [];
+  final.forEach((el) => {
+    for (let i = 0; i < +calcuate[0].value; i++) {
+      result.push(+el + i);
+    }
+  });
+  const newArayVal = result.map((el) => {
     if (el.toString().length < 8) {
       const newArray = new Array(8 - el.toString().length).fill("0");
       const newVal = newArray.reduce((a, b) => a + b);
@@ -26,7 +32,7 @@ const generateRandomeNumberAlgorithm = () => {
   });
   const parent = document.getElementById("parent");
 
-  for (let i = 0; i < newArayVal.length; i++) {
+  for (let i = 0; i < result.length; i++) {
     const li = document.createElement("li");
     li.innerText = newArayVal[i];
     li.classList.add;
