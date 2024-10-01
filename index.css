@@ -200,6 +200,10 @@ span input {
   .result_parent li:nth-child(4n + 1) {
     margin-top: 0.75in;
   }
+
+  .result_parent li:nth-child(3n){
+    margin-top: 0.67in;
+  }
 }
 
 /* 
