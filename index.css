@@ -185,29 +185,29 @@ span input {
     margin-left: 3.5in;
     margin-top: 0.75in;
     list-style-type: none;
+    flex-flow: column;
   }
   .result_parent li {
     position: relative;
-    page-break-inside: avoid; /* Avoid breaking items between pages */
-    margin-bottom: 2.5in; /* Add spacing between items to replace gap */
+    /* margin-bottom: 2.5in; */
+    margin-bottom: 2.5in;
   }
 
   .result_parent li:nth-child(4n) {
-    page-break-after: always;
+    page-break-after: auto;
   }
 
-  /* Control the top margin of every 5th element */
   .result_parent li:nth-child(4n + 1) {
     margin-top: 0.75in;
   }
 
-  .result_parent li:nth-child(3n){
+  .result_parent li:nth-child(3n) {
     margin-top: 0.67in;
   }
-  .result_parent li:last-child{
-    page-break-after: avoid;
+  .result_parent li:last-child {
+    page-break-after: auto;
+    margin-bottom: 0in;
   }
-  
 }
 
 /* 

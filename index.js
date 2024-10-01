@@ -5,16 +5,17 @@ let row_3_starting = document.getElementsByName("row_3_starting");
 let row_4_starting = document.getElementsByName("row_4_starting");
 
 const generateRandomeNumberAlgorithm = () => {
-  const value1Array = new Array(4).fill(row_1_starting[0].value);
-  const value2Array = new Array(4).fill(row_2_starting[0].value);
-  const value3Array = new Array(4).fill(row_3_starting[0].value);
-  const value4Array = new Array(4).fill(row_4_starting[0].value);
+  // const value1Array = new Array(1).fill(row_1_starting[0].value);
+  // const value2Array = new Array(1).fill(row_2_starting[0].value);
+  // const value3Array = new Array(1).fill(row_3_starting[0].value);
+  // const value4Array = new Array(1).fill(row_4_starting[0].value);
   const final = [
-    ...value1Array,
-    ...value2Array,
-    ...value3Array,
-    ...value4Array,
+    row_1_starting[0].value,
+    row_2_starting[0].value,
+    row_3_starting[0].value,
+    row_4_starting[0].value,
   ];
+  
 
   const newArayVal = final.map((el) => {
     if (el.toString().length < 8) {
