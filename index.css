@@ -204,6 +204,10 @@ span input {
   .result_parent li:nth-child(3n){
     margin-top: 0.67in;
   }
+  .result_parent li:last-child{
+    page-break-after: avoid;
+  }
+  
 }
 
 /* 
