@@ -4,7 +4,8 @@ let row_2_starting = document.getElementsByName("row_2_starting");
 let row_3_starting = document.getElementsByName("row_3_starting");
 let row_4_starting = document.getElementsByName("row_4_starting");
 
-let calcuate = document.getElementsByName("row_1_calculate");
+let row_1_calculate = document.getElementsByName("row_1_calculate");
+
 const generateRandomeNumberAlgorithm = () => {
   // const value1Array = new Array(1).fill(row_1_starting[0].value);
   // const value2Array = new Array(1).fill(row_2_starting[0].value);
@@ -17,22 +18,29 @@ const generateRandomeNumberAlgorithm = () => {
     row_4_starting[0].value,
   ];
 
-  const result = [];
-  final.forEach((el) => {
-    for (let i = 0; i < +calcuate[0].value; i++) {
-      result.push(+el + i);
+  let newArray = [];
+  for (let i = 0; i < +row_1_calculate[0].value; i++) {
+    for (let j = 0; j < +final.length; j++) {
+      newArray.push(+final[j] + i);
     }
-  });
-  const newArayVal = result.map((el) => {
+  }
+  // final.forEach((el) => {
+  //   for (let i = 0; i < +row_1_calculate[0].value; i++) {
+  //     result.push(+el + i);
+  //   }
+  // });
+
+  const newArayVal = newArray.map((el) => {
     if (el.toString().length < 8) {
       const newArray = new Array(8 - el.toString().length).fill("0");
       const newVal = newArray.reduce((a, b) => a + b);
       return newVal + el;
     }
   });
+
   const parent = document.getElementById("parent");
 
-  for (let i = 0; i < result.length; i++) {
+  for (let i = 0; i < newArayVal.length; i++) {
     const li = document.createElement("li");
     li.innerText = newArayVal[i];
     li.classList.add;
