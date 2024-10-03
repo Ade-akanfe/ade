@@ -45,6 +45,7 @@ const generateRandomeNumberAlgorithm = () => {
     li.innerText = newArayVal[i];
     li.classList.add;
     parent.appendChild(li);
+    console.log("working");
   }
 };
 
